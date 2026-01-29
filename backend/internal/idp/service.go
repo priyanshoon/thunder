@@ -76,7 +76,7 @@ func (is *idpService) CreateIdentityProvider(idp *IDPDTO) (*IDPDTO, *serviceerro
 	}
 
 	// Create the IdP in the database.
-	idp.ID = utils.GenerateUUID()
+	idp.ID, _ = utils.GenerateUUIDv7()
 	err = is.idpStore.CreateIdentityProvider(*idp)
 	if err != nil {
 		logger.Error("Failed to create IdP", log.Error(err))

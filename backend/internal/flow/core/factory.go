@@ -72,7 +72,7 @@ func (f *flowFactory) CreateNode(id, _type string, properties map[string]interfa
 // CreateGraph creates a new graph with the given ID and type
 func (f *flowFactory) CreateGraph(id string, _type common.FlowType) GraphInterface {
 	if id == "" {
-		id = sysutils.GenerateUUID()
+		id, _ = sysutils.GenerateUUIDv7()
 	}
 	if _type == "" {
 		_type = common.FlowTypeAuthentication

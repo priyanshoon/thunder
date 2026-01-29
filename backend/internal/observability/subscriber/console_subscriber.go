@@ -77,7 +77,7 @@ func (cs *ConsoleSubscriber) Initialize() error {
 		cs.categories = []event.EventCategory{event.CategoryAll}
 	}
 
-	cs.id = utils.GenerateUUID()
+	cs.id, _ = utils.GenerateUUIDv7()
 	cs.formatter = fmtr
 	cs.adapter = adptr
 	cs.logger = log.GetLogger().With(log.String(log.LoggerKeyComponentName, consoleSubscriberComponentName))

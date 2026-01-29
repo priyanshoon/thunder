@@ -90,7 +90,7 @@ func (fs *FileSubscriber) Initialize() error {
 		fs.categories = []event.EventCategory{event.CategoryAll}
 	}
 
-	fs.id = utils.GenerateUUID()
+	fs.id, _ = utils.GenerateUUIDv7()
 	fs.formatter = fmtr
 	fs.adapter = adptr
 	fs.logger = log.GetLogger().With(log.String(log.LoggerKeyComponentName, fileSubscriberComponentName))
