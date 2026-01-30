@@ -523,18 +523,18 @@ func createAuthorizationCode(
 	validityPeriod := oauthConfig.AuthorizationCode.ValidityPeriod
 	expiryTime := authTime.Add(time.Duration(validityPeriod) * time.Second)
 
-	codeId, err := utils.GenerateUUIDv7()
+	codeID, err := utils.GenerateUUIDv7()
 	if err != nil {
-		return AuthorizationCode{}, errors.New("Faild to generate UUID")
+		return AuthorizationCode{}, errors.New("Failed to generate UUID")
 	}
 
 	code, err := utils.GenerateUUIDv7()
 	if err != nil {
-		return AuthorizationCode{}, errors.New("Faild to generate UUID")
+		return AuthorizationCode{}, errors.New("Failed to generate UUID")
 	}
 
 	return AuthorizationCode{
-		CodeID:              codeId,
+		CodeID:              codeID,
 		Code:                code,
 		ClientID:            clientID,
 		RedirectURI:         redirectURI,

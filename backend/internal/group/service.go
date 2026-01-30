@@ -197,14 +197,14 @@ func (gs *groupService) CreateGroup(request CreateGroupRequest) (*Group, *servic
 		return nil, &ErrorInternalServerError
 	}
 
-	groupDoaId, err := utils.GenerateUUIDv7()
+	groupDaoID, err := utils.GenerateUUIDv7()
 	if err != nil {
 		logger.Error("Failed to generate UUID", log.Error(err))
 		return nil, &serviceerror.InternalServerError
 	}
 
 	groupDAO := GroupDAO{
-		ID:                 groupDoaId,
+		ID:                 groupDaoID,
 		Name:               request.Name,
 		Description:        request.Description,
 		OrganizationUnitID: request.OrganizationUnitID,

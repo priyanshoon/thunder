@@ -132,7 +132,6 @@ func (s *certificateService) CreateCertificate(cert *Certificate) (*Certificate,
 	if err != nil {
 		logger.Error("Failed to generate UUID", log.Error(err))
 		return nil, &serviceerror.InternalServerError
-
 	}
 
 	err = s.store.CreateCertificate(cert)
